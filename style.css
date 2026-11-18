@@ -1,0 +1,944 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #101010;
+  --panel: #191919;
+  --panel-light: #222;
+  --orange: #ff642d;
+  --white: #f5f3ef;
+  --muted: #aaa7a2;
+  --line: rgba(255,255,255,.13);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 86px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Inter', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+button {
+  font: inherit;
+}
+
+/* HEADER */
+
+.site-header {
+  height: 78px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  background: rgba(13,13,13,.97);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.logo b {
+  color: var(--orange);
+}
+
+.logo-mark {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--orange);
+  color: #111;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}
+
+.main-nav a {
+  color: #d4d1cc;
+  font-size: 12px;
+  font-weight: 700;
+  transition: color .2s;
+}
+
+.main-nav a:hover,
+.text-link:hover {
+  color: var(--orange);
+}
+
+.header-cta {
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.header-cta i {
+  margin-left: 7px;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  color: var(--white);
+  font-size: 23px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 660px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 90px 10%;
+  background: url('https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=2000&q=90') center/cover no-repeat;
+  overflow: hidden;
+}
+
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,.94) 0%,
+    rgba(0,0,0,.68) 48%,
+    rgba(0,0,0,.12) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+.eyebrow {
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.3px;
+  margin-bottom: 15px;
+}
+
+.eyebrow span {
+  display: inline-block;
+  width: 25px;
+  height: 2px;
+  background: var(--orange);
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+h1, h2, h3 {
+  font-family: 'Barlow Condensed', Impact, sans-serif;
+  line-height: .98;
+}
+
+.hero h1 {
+  font-size: clamp(64px, 9vw, 116px);
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.hero h1 em {
+  color: var(--orange);
+  font-style: normal;
+}
+
+.hero-copy {
+  color: #d2d0cc;
+  max-width: 480px;
+  margin: 25px 0 30px;
+  font-size: 15px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+
+.button {
+  min-height: 48px;
+  padding: 0 21px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  transition: .2s;
+}
+
+.button-primary {
+  background: var(--orange);
+  color: #111;
+}
+
+.button-primary:hover {
+  background: #ff8053;
+  transform: translateY(-2px);
+}
+
+.button-outline {
+  border: 1px solid rgba(255,255,255,.6);
+  color: white;
+}
+
+.button-outline:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.hero-note {
+  margin-top: 55px;
+  color: #c4c0ba;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+.hero-note i {
+  color: var(--orange);
+  margin-right: 7px;
+}
+
+.hero-side-label {
+  position: absolute;
+  right: 4%;
+  bottom: 35px;
+  writing-mode: vertical-rl;
+  color: rgba(255,255,255,.65);
+  letter-spacing: 3px;
+  font-size: 10px;
+}
+
+/* TICKER */
+
+.ticker {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 19px 5%;
+  background: var(--orange);
+  color: #111;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  flex-wrap: wrap;
+}
+
+.ticker i {
+  margin-right: 8px;
+}
+
+/* GENERAL SECTIONS */
+
+.section {
+  padding: 95px 8%;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 35px;
+}
+
+.section-heading h2,
+.about-copy h2 {
+  font-size: clamp(42px, 5.2vw, 65px);
+  font-weight: 800;
+}
+
+.section-heading h2 span,
+.about-copy h2 span {
+  color: var(--orange);
+}
+
+.heading-description {
+  max-width: 330px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* VIDEO */
+
+.video-section {
+  background: #151515;
+}
+
+.video-frame {
+  background: #050505;
+  border: 1px solid var(--line);
+  padding: 10px;
+}
+
+.video-frame video {
+  display: block;
+  width: 100%;
+  max-height: 680px;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #000;
+}
+
+.video-caption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 8px 5px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.video-caption i {
+  color: var(--orange);
+  font-size: 17px;
+}
+
+.video-tag {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 9px;
+}
+
+/* NEWS */
+
+.text-link {
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.text-link i {
+  margin-left: 7px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr;
+  gap: 17px;
+}
+
+.news-card {
+  position: relative;
+  min-height: 340px;
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.news-card img {
+  height: 100%;
+  min-height: 340px;
+  position: absolute;
+  inset: 0;
+  transition: transform .5s;
+}
+
+.news-card:hover img {
+  transform: scale(1.05);
+}
+
+.news-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(0,0,0,.92),
+    transparent 75%
+  );
+}
+
+.news-overlay {
+  position: absolute;
+  z-index: 1;
+  bottom: 23px;
+  left: 22px;
+  right: 22px;
+}
+
+.category {
+  color: var(--orange);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.7px;
+}
+
+.news-overlay h3 {
+  font-size: 29px;
+  margin: 9px 0;
+}
+
+.news-overlay p {
+  color: #d0ccc7;
+  font-size: 11px;
+}
+
+.small-note {
+  margin-top: 17px;
+  color: #898680;
+  font-size: 10px;
+}
+
+/* CONCERTS */
+
+.concerts-section {
+  background: #151515;
+}
+
+.section-icon {
+  color: var(--orange);
+  font-size: 35px;
+}
+
+.concert-list {
+  border-top: 1px solid var(--line);
+}
+
+.concert-card {
+  display: grid;
+  grid-template-columns: 160px 1fr 230px;
+  gap: 25px;
+  align-items: center;
+  padding: 25px 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.concert-date {
+  border-left: 3px solid var(--orange);
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.concert-date strong {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 33px;
+  line-height: 1;
+}
+
+.concert-date span {
+  color: var(--muted);
+  font-size: 8px;
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+
+.concert-info h3 {
+  font-size: 34px;
+  margin: 4px 0 8px;
+}
+
+.concert-info p {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.concert-info p i {
+  color: var(--orange);
+  margin-right: 6px;
+}
+
+.concert-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 10px;
+}
+
+.status {
+  border: 1px solid var(--line);
+  padding: 5px 9px;
+  color: #ddd;
+  font-size: 9px;
+}
+
+.status-pending {
+  border-color: rgba(255,100,45,.5);
+  color: var(--orange);
+}
+
+.concert-status a {
+  color: var(--orange);
+  font-weight: 700;
+}
+
+.concert-status a i {
+  margin-left: 5px;
+}
+
+/* REGIONS */
+
+.region-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.region-card {
+  position: relative;
+  min-height: 250px;
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.region-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(0,0,0,.88),
+    rgba(0,0,0,.03) 75%
+  );
+}
+
+.region-card img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  transition: transform .5s;
+}
+
+.region-card:hover img {
+  transform: scale(1.07);
+}
+
+.region-card > span,
+.region-card h3 {
+  position: absolute;
+  z-index: 1;
+  left: 20px;
+}
+
+.region-card > span {
+  bottom: 57px;
+  color: #ddd;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.region-card h3 {
+  bottom: 20px;
+  right: 20px;
+  font-size: 29px;
+}
+
+.region-card h3 i {
+  color: var(--orange);
+  font-size: 12px;
+  margin-left: 6px;
+}
+
+/* MUSIC TRAVEL */
+
+.travel-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #1b1b1b;
+}
+
+.travel-image {
+  min-height: 650px;
+  background: url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=90') center/cover;
+}
+
+.travel-content {
+  padding: 75px 10%;
+  align-self: center;
+}
+
+.travel-content h2 {
+  font-size: clamp(48px, 6vw, 76px);
+  margin-bottom: 22px;
+}
+
+.travel-content h2 span {
+  color: var(--orange);
+}
+
+.travel-content > p:not(.eyebrow):not(.small-note) {
+  color: #c2beb8;
+  font-size: 13px;
+}
+
+.travel-content ul {
+  list-style: none;
+  margin: 25px 0 30px;
+}
+
+.travel-content li {
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+  color: #ddd;
+  font-size: 12px;
+}
+
+.travel-content li i {
+  width: 25px;
+  color: var(--orange);
+}
+
+/* ABOUT */
+
+.about-section {
+  display: grid;
+  grid-template-columns: .65fr 1fr 1.1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-symbol {
+  width: 145px;
+  height: 145px;
+  border: 2px solid var(--orange);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--orange);
+  transform: rotate(-10deg);
+}
+
+.about-symbol i {
+  font-size: 32px;
+}
+
+.about-symbol span {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  margin-top: 7px;
+}
+
+.about-description p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+/* FOOTER */
+
+.site-footer {
+  padding: 35px 8%;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.site-footer > p {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.social-links {
+  margin-left: auto;
+  display: flex;
+  gap: 17px;
+}
+
+.social-links a {
+  color: #bbb;
+  font-size: 17px;
+}
+
+.social-links a:hover {
+  color: var(--orange);
+}
+
+.site-footer small {
+  width: 100%;
+  color: #777;
+  font-size: 9px;
+}
+
+/* TABLET */
+
+@media (max-width: 950px) {
+  .site-header {
+    padding: 0 4%;
+  }
+
+  .main-nav {
+    gap: 14px;
+  }
+
+  .main-nav a {
+    font-size: 10px;
+  }
+
+  .header-cta {
+    display: none;
+  }
+
+  .section {
+    padding: 75px 6%;
+  }
+
+  .about-section {
+    grid-template-columns: .5fr 1fr;
+  }
+
+  .about-description {
+    grid-column: 2;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .site-header {
+    height: 68px;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    padding: 18px 6% 24px;
+    background: #111;
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
+  .main-nav a {
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: 610px;
+    padding: 75px 7%;
+    background-position: 58% center;
+  }
+
+  .hero h1 {
+    font-size: clamp(58px, 16vw, 88px);
+  }
+
+  .hero-side-label {
+    display: none;
+  }
+
+  .ticker {
+    justify-content: flex-start;
+    padding: 16px 6%;
+    font-size: 9px;
+  }
+
+  .section {
+    padding: 65px 6%;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-card,
+  .news-card img {
+    min-height: 300px;
+  }
+
+  .concert-card {
+    grid-template-columns: 95px 1fr;
+    gap: 15px;
+  }
+
+  .concert-date strong {
+    font-size: 27px;
+  }
+
+  .concert-status {
+    grid-column: 2;
+  }
+
+  .region-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .region-card {
+    min-height: 190px;
+  }
+
+  .region-card h3 {
+    font-size: 23px;
+  }
+
+  .travel-section {
+    grid-template-columns: 1fr;
+  }
+
+  .travel-image {
+    min-height: 300px;
+  }
+
+  .travel-content {
+    padding: 55px 7%;
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .about-description {
+    grid-column: auto;
+  }
+
+  .about-symbol {
+    width: 110px;
+    height: 110px;
+  }
+
+  .about-symbol i {
+    font-size: 24px;
+  }
+
+  .site-footer {
+    padding: 30px 6%;
+  }
+
+  .social-links {
+    margin-left: 0;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 420px) {
+  .logo {
+    font-size: 12px;
+  }
+
+  .logo-mark {
+    width: 31px;
+    height: 31px;
+  }
+
+  .region-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .region-card {
+    min-height: 220px;
+  }
+
+  .video-caption {
+    flex-wrap: wrap;
+  }
+
+  .video-tag {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* EXPANDED CONCERT LISTINGS */
+
+.show-dates {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.show-dates li {
+  color: #c5c0ba;
+  font-size: 10px;
+  line-height: 1.65;
+  margin: 3px 0;
+}
+
+.show-dates li i {
+  color: var(--orange);
+  width: 15px;
+}
+
+.status-confirmed {
+  border-color: rgba(255,100,45,.45);
+  color: #ff9a73;
+}
+
+.concert-archive {
+  background: rgba(255,255,255,.018);
+}
+
+.concert-archive .concert-date {
+  border-left-color: #777;
+}
+
+@media (max-width: 700px) {
+  .show-dates li {
+    font-size: 10px;
+  }
+}
